@@ -1,0 +1,8 @@
+def build(bld):
+    bld.program(
+        source = 'json-test.cpp',
+        target = 'json-test',
+        includes = '. ../include',
+	lib = 'pficommon_text pficommon_data',
+        use = 'JSON TEST'
+        )
