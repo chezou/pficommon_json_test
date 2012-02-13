@@ -1,3 +1,13 @@
+/*
+ Copyright (c) 2012 chezou
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
 #include <pficommon/text/json.h>
 #include <sstream>
 #include "souvenir.h"
@@ -43,10 +53,14 @@ int main(){
 
   //nullを含む値をデシリアライズする場合
   //初期化していない値はまちまち
-  stringstream ss("{\"name\":null,\"famouse\":true}");
+  stringstream ss("{\"name\":null,\"famous\":true,\"max_price\":1200}");
 
   Souvenir sv2;
   ss >> via_json_with_default(sv2);
+  cout << "name:" << sv2.name << " price:" << sv2.price 
+       << " max_price:"  << sv2.max_price <<  " famous:" << (sv2.famous ? "true" : "false")
+       << " funny:" << (sv2.funny ? "true" : "false") << endl;
+
   cout << to_json(sv2) << endl;
 
   //格納するクラスの変数をpficommon::data::optionalで定義
