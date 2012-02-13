@@ -1,6 +1,6 @@
 Sample code of JSON serialization and deserialization with pficommon
 ==========================
-2012 chezou
+ 2012 chezou
 
 REQUIREMENT
 --------------------

@@ -57,10 +57,11 @@ int main(){
 
   Souvenir sv2;
   ss >> via_json_with_default(sv2);
+  //max_priceは型をpfi::data::optional<int>にしているため、1/0の値で格納される
   cout << "name:" << sv2.name << " price:" << sv2.price 
        << " max_price:"  << sv2.max_price <<  " famous:" << (sv2.famous ? "true" : "false")
        << " funny:" << (sv2.funny ? "true" : "false") << endl;
-
+  //max_priceをjsonにする場合は問題ない
   cout << to_json(sv2) << endl;
 
   //格納するクラスの変数をpficommon::data::optionalで定義
